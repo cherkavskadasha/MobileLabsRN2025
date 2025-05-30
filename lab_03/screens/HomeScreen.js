@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import {
@@ -55,7 +54,89 @@ export default function HomeScreen({ navigation }) {
         }));
     };
 
+    const handleSingleTap = () => {
+        setScore((prev) => prev + 1);
+        updateTask('clicks');
+    };
 
+    const handleDoubleTap = () => {
+        setScore((prev) => prev + 2);
+        updateTask('doubleClicks');
+    };
+
+    const handleLongPress = () => {
+        setScore((prev) => prev + 5);
+        updateTask('longPresses');
+    };
+
+    const handleFlingRight = () => {
+        const points = Math.floor(Math.random() * 10) + 1;
+        setScore((prev) => prev + points);
+        updateTask('flingRight');
+    };
+
+    const handleFlingLeft = () => {
+        const points = Math.floor(Math.random() * 5) + 1;
+        setScore((prev) => prev + points);
+        updateTask('flingLeft');
+    };
+
+    // Окремі функції для runOnJS
+    const increaseScoreBy3 = () => setScore(prev => prev + 3);
+    const increasePinchTask = () => updateTask('pinches');
+
+    const singleTap = Gesture.Tap()
+        .numberOfTaps(1)
+        .onEnd(() => runOnJS(handleSingleTap)());
+
+    const doubleTap = Gesture.Tap()
+        .numberOfTaps(2)
+        .onEnd(() => runOnJS(handleDoubleTap)());
+
+    const longPress = Gesture.LongPress()
+        .minDuration(3000)
+        .onEnd(() => runOnJS(handleLongPress)());
+
+    const pan = Gesture.Pan()
+        .onUpdate((e) => {
+            translateX.value = e.translationX;
+            translateY.value = e.translationY;
+        })
+        .onEnd(() => {
+            translateX.value = withSpring(0);
+            translateY.value = withSpring(0);
+            runOnJS(updateTask)('pans');
+        });
+
+    const pinch = Gesture.Pinch()
+        .onUpdate((e) => {
+            // Обмеження масштабу від 0.5 до 3
+            scale.value = Math.min(Math.max(e.scale, 0.5), 3);
+        })
+        .onEnd(() => {
+            if (scale.value > 1.2 || scale.value < 0.8) {
+                runOnJS(increaseScoreBy3)();
+                runOnJS(increasePinchTask)();
+            }
+            scale.value = withSpring(1);
+        });
+
+    const flingRight = Gesture.Fling()
+        .direction(Directions.RIGHT)
+        .onEnd(() => runOnJS(handleFlingRight)());
+
+    const flingLeft = Gesture.Fling()
+        .direction(Directions.LEFT)
+        .onEnd(() => runOnJS(handleFlingLeft)());
+
+    const gesture = Gesture.Simultaneous(
+        Gesture.Exclusive(doubleTap, singleTap),
+        longPress,
+        pan,
+        pinch,
+        flingRight,
+        flingLeft
+    );
 
     const isTaskDone = {
         'Зробити 10 кліків': tasks.clicks >= 10,
