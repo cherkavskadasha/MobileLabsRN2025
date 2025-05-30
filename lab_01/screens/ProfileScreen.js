@@ -17,7 +17,6 @@ export default function RegistrationForm() {
             return;
         }
 
-        // Тут можна відправити дані на сервер
         Alert.alert('Успіх', `Вітаємо, ${username}! Ви зареєстровані.\nВаш email: ${email}\nВаш пароль: ${password}`);
     };
 
