@@ -1,15 +1,13 @@
-import { View, Text } from "react-native";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ThemeProvider } from './theme/ThemeContext';
+import AppNavigator from "./navigation";
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal React with Expo</Text>
-    </View>
+      <SafeAreaProvider>
+          <ThemeProvider>
+              <AppNavigator />
+          </ThemeProvider>
+      </SafeAreaProvider>
   );
 }
