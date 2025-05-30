@@ -81,7 +81,6 @@ export default function HomeScreen({ navigation }) {
         updateTask('flingLeft');
     };
 
-    // Окремі функції для runOnJS
     const increaseScoreBy3 = () => setScore(prev => prev + 3);
     const increasePinchTask = () => updateTask('pinches');
 
@@ -152,16 +151,17 @@ export default function HomeScreen({ navigation }) {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <View style={styles.container}>
+                <Button
+                    title="Завдання"
+                    onPress={() => navigation.navigate('Завдання', { tasks, isTaskDone })}
+                />
                 <Text style={styles.score}>Очки: {score}</Text>
 
                 <GestureDetector gesture={gesture}>
                     <Animated.View style={[styles.circle, animatedStyle]} />
                 </GestureDetector>
 
-                <Button
-                    title="Завдання"
-                    onPress={() => navigation.navigate('Завдання', { tasks, isTaskDone })}
-                />
+
             </View>
         </GestureHandlerRootView>
     );
