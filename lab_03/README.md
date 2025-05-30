@@ -1,5 +1,5 @@
 # My Universal React Project
-[Скріншоти]([https://itunes.apple.com/app/apple-store/id982107779](https://github.com/cherkavskadasha/MobileLabsRN2025/tree/master/lab_03/screenshots))
+[Скріншоти](https://github.com/cherkavskadasha/MobileLabsRN2025/tree/master/lab_03/screenshots)
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
