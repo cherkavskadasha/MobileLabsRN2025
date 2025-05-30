@@ -1,15 +1,10 @@
-import { View, Text } from "react-native";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AppNavigator from "./navigation/AppNavigator";
 
 export default function App() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal React with Expo</Text>
-    </View>
-  );
+    return (
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <AppNavigator />
+        </GestureHandlerRootView>
+    );
 }
