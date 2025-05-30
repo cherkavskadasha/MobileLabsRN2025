@@ -76,9 +76,6 @@ export default function ChatScreen() {
         }
     };
     const [activeTab, setActiveTab] = useState('Open Chats');
-    // const onChatPress = (chat) => {
-    //     alert(`Натиснуто чат з ${chat.username}`);
-    // };
 
     return (
         <Container>
@@ -103,7 +100,6 @@ export default function ChatScreen() {
                         username={item.username}
                         lastMessage={item.lastMessage}
                         timestamp={item.timestamp}
-                        // onPress={() => onChatPress(item)}
                     />
                 )}
                 onEndReached={loadMore}
