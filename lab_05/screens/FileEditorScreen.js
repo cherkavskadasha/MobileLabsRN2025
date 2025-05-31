@@ -55,17 +55,11 @@ export default function FileEditorScreen({ route, navigation }) {
 
     return (
         <View style={styles.container}>
-            {/* Верхня панель */}
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color="#fff" />
-                </TouchableOpacity>
-                <Text style={styles.title} numberOfLines={1}>{fileName}</Text>
-                <TouchableOpacity onPress={saveFile} disabled={saving}>
-                    <MaterialIcons name="save" size={24} color="#fff" />
-                </TouchableOpacity>
-            </View>
 
+            <View style={styles.header}>
+                <Text style={styles.title} numberOfLines={1}>{fileName}</Text>
+                <Text style={styles.typeBtn} onPress={saveFile} disabled={saving}>Зберегти</Text>
+            </View>
             <TextInput
                 multiline
                 style={styles.editor}
@@ -77,25 +71,32 @@ export default function FileEditorScreen({ route, navigation }) {
                 autoCorrect={false}
                 underlineColorAndroid="transparent"
             />
+
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: '#f9f9f9' },
-    header: {
+    typeBtn: {
+        paddingVertical: 6,
+        paddingHorizontal: 12,
         backgroundColor: '#2979FF',
+        borderRadius: 6,
+        fontSize: 16,
+    },
+    container: { flex: 1, backgroundColor: '#f9f9f9'},
+    header: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 12,
         paddingVertical: 14,
         justifyContent: 'space-between',
-        elevation: 4,
     },
     title: {
         flex: 1,
         fontSize: 18,
-        color: '#fff',
+        color: '#2979FF',
         fontWeight: 'bold',
         marginLeft: 12,
         marginRight: 12,
