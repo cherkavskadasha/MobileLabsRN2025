@@ -143,7 +143,6 @@ export default function HomeScreen({ navigation }) {
                 <Ionicons name="add" size={28} color="#fff" />
             </TouchableOpacity>
 
-            {/* Modal для створення */}
             <Modal visible={modalVisible} transparent animationType="slide">
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContainer}>
