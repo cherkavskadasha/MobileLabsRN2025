@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "lab_04",
+    "slug": "lab_04",
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ]
+    ],
+    "ios": {
+      "bundleIdentifier": "com.ztdu.chdv"
+    },
+    "android": {
+      "package": "com.ztdu.chdv"
+    },
+    "extra": {
+      "oneSignalAppId": "025ab387-47d7-41c3-8b09-4c292ec1da40",
+      "apiKey": "os_v2_app_ajnlhb2h25a4hcyjjqus5qo2iatzqqlczodeqyegzwsaorevtuuywtu732awff7c27jyohzs5hrnsrhfihoykrhzensg6phskhliwxq"
+    }
+
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@react-native-community/datetimepicker": "8.3.0",
+    "expo": "^53.0.4",
+    "expo-constants": "^17.1.6",
+    "onesignal-expo-plugin": "^1.1.2",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-date-picker": "^5.0.12",
+    "react-native-modal-datetime-picker": "^18.0.0",
+    "react-native-onesignal": "^5.2.12",
+    "react-native-web": "^0.20.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3"
+  },
+  "name": "lab_04",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  }
+}
